@@ -62,33 +62,24 @@ export function generateClientProposal(
     doc.line(x + size * 0.3, y - size * 0.2, x + size, y);
   };
 
-  // Modern footer with gradient accent
+  // Modern footer with clean light background
   const addFooter = (pageNum: number, totalPages: number) => {
     doc.setPage(pageNum);
 
-    // Gradient footer bar
     const footerHeight = 18;
     const footerY = pageHeight - footerHeight;
 
-    // Draw gradient footer
-    const steps = 30;
-    const stepWidth = pageWidth / steps;
-    for (let i = 0; i < steps; i++) {
-      const ratio = i / steps;
-      const r = Math.round(darkNavy[0] + (tealBlue[0] - darkNavy[0]) * ratio);
-      const g = Math.round(darkNavy[1] + (tealBlue[1] - darkNavy[1]) * ratio);
-      const b = Math.round(darkNavy[2] + (tealBlue[2] - darkNavy[2]) * ratio);
-      doc.setFillColor(r, g, b);
-      doc.rect(i * stepWidth, footerY, stepWidth + 0.5, footerHeight, 'F');
-    }
+    // Clean light footer background
+    doc.setFillColor(245, 248, 250); // Light blue-grey
+    doc.rect(0, footerY, pageWidth, footerHeight, 'F');
 
-    // Accent line at top of footer
+    // Turquoise accent line at top
     doc.setDrawColor(...turquoise);
-    doc.setLineWidth(0.5);
+    doc.setLineWidth(1);
     doc.line(0, footerY, pageWidth, footerY);
 
     // Company name on left
-    doc.setTextColor(...white);
+    doc.setTextColor(...darkNavy);
     doc.setFontSize(8);
     doc.setFont('helvetica', 'bold');
     doc.text('UPSCALE DEVELOPMENT GROUP', 12, footerY + 11);
@@ -96,11 +87,13 @@ export function generateClientProposal(
     // Confidential notice center
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(7);
+    doc.setTextColor(...oceanBlue);
     doc.text('Confidential - For Client Review Only', pageWidth / 2, footerY + 11, { align: 'center' });
 
     // Page number on right
     doc.setFontSize(8);
     doc.setFont('helvetica', 'bold');
+    doc.setTextColor(...tealBlue);
     doc.text(`${pageNum} of ${totalPages}`, pageWidth - 12, footerY + 11, { align: 'right' });
   };
 
@@ -222,25 +215,19 @@ export function generateClientProposal(
   doc.addPage();
   currentPage++;
 
-  // Modern page header with gradient
+  // Modern clean header
   const headerHeight = 32;
-  const steps = 20;
-  const stepWidth = pageWidth / steps;
-  for (let i = 0; i < steps; i++) {
-    const ratio = i / steps;
-    const r = Math.round(darkNavy[0] + (tealBlue[0] - darkNavy[0]) * ratio);
-    const g = Math.round(darkNavy[1] + (tealBlue[1] - darkNavy[1]) * ratio);
-    const b = Math.round(darkNavy[2] + (tealBlue[2] - darkNavy[2]) * ratio);
-    doc.setFillColor(r, g, b);
-    doc.rect(i * stepWidth, 0, stepWidth + 0.5, headerHeight, 'F');
-  }
 
-  // Accent line under header
+  // Clean light header background
+  doc.setFillColor(245, 248, 250); // Light blue-grey
+  doc.rect(0, 0, pageWidth, headerHeight, 'F');
+
+  // Turquoise accent line under header
   doc.setDrawColor(...turquoise);
-  doc.setLineWidth(1.5);
+  doc.setLineWidth(2);
   doc.line(0, headerHeight, pageWidth, headerHeight);
 
-  doc.setTextColor(...white);
+  doc.setTextColor(...darkNavy);
   doc.setFontSize(22);
   doc.setFont('helvetica', 'bold');
   doc.text('EXECUTIVE SUMMARY', 15, 20);
@@ -396,21 +383,15 @@ export function generateClientProposal(
   doc.addPage();
   currentPage++;
 
-  // Modern page header with gradient
-  for (let i = 0; i < 20; i++) {
-    const ratio = i / 20;
-    const r = Math.round(darkNavy[0] + (tealBlue[0] - darkNavy[0]) * ratio);
-    const g = Math.round(darkNavy[1] + (tealBlue[1] - darkNavy[1]) * ratio);
-    const b = Math.round(darkNavy[2] + (tealBlue[2] - darkNavy[2]) * ratio);
-    doc.setFillColor(r, g, b);
-    doc.rect((i * pageWidth) / 20, 0, pageWidth / 20 + 0.5, 32, 'F');
-  }
+  // Modern clean header
+  doc.setFillColor(245, 248, 250); // Light blue-grey
+  doc.rect(0, 0, pageWidth, 32, 'F');
 
   doc.setDrawColor(...turquoise);
-  doc.setLineWidth(1.5);
+  doc.setLineWidth(2);
   doc.line(0, 32, pageWidth, 32);
 
-  doc.setTextColor(...white);
+  doc.setTextColor(...darkNavy);
   doc.setFontSize(22);
   doc.setFont('helvetica', 'bold');
   doc.text('MEDICAL STAFF LABOR', 15, 20);
@@ -488,21 +469,15 @@ export function generateClientProposal(
   doc.addPage();
   currentPage++;
 
-  // Modern gradient header
-  for (let i = 0; i < 20; i++) {
-    const ratio = i / 20;
-    const r = Math.round(darkNavy[0] + (tealBlue[0] - darkNavy[0]) * ratio);
-    const g = Math.round(darkNavy[1] + (tealBlue[1] - darkNavy[1]) * ratio);
-    const b = Math.round(darkNavy[2] + (tealBlue[2] - darkNavy[2]) * ratio);
-    doc.setFillColor(r, g, b);
-    doc.rect((i * pageWidth) / 20, 0, pageWidth / 20 + 0.5, 32, 'F');
-  }
+  // Modern clean header
+  doc.setFillColor(245, 248, 250); // Light blue-grey
+  doc.rect(0, 0, pageWidth, 32, 'F');
 
   doc.setDrawColor(...turquoise);
-  doc.setLineWidth(1.5);
+  doc.setLineWidth(2);
   doc.line(0, 32, pageWidth, 32);
 
-  doc.setTextColor(...white);
+  doc.setTextColor(...darkNavy);
   doc.setFontSize(22);
   doc.setFont('helvetica', 'bold');
   doc.text('MEDICAL EQUIPMENT & SYSTEMS', 15, 20);
@@ -585,21 +560,15 @@ export function generateClientProposal(
   doc.addPage();
   currentPage++;
 
-  // Modern gradient header
-  for (let i = 0; i < 20; i++) {
-    const ratio = i / 20;
-    const r = Math.round(darkNavy[0] + (tealBlue[0] - darkNavy[0]) * ratio);
-    const g = Math.round(darkNavy[1] + (tealBlue[1] - darkNavy[1]) * ratio);
-    const b = Math.round(darkNavy[2] + (tealBlue[2] - darkNavy[2]) * ratio);
-    doc.setFillColor(r, g, b);
-    doc.rect((i * pageWidth) / 20, 0, pageWidth / 20 + 0.5, 32, 'F');
-  }
+  // Modern clean header
+  doc.setFillColor(245, 248, 250); // Light blue-grey
+  doc.rect(0, 0, pageWidth, 32, 'F');
 
   doc.setDrawColor(...turquoise);
-  doc.setLineWidth(1.5);
+  doc.setLineWidth(2);
   doc.line(0, 32, pageWidth, 32);
 
-  doc.setTextColor(...white);
+  doc.setTextColor(...darkNavy);
   doc.setFontSize(22);
   doc.setFont('helvetica', 'bold');
   doc.text('DETAILED CONSTRUCTION COSTS', 15, 20);
@@ -666,21 +635,15 @@ export function generateClientProposal(
   doc.addPage();
   currentPage++;
 
-  // Modern gradient header
-  for (let i = 0; i < 20; i++) {
-    const ratio = i / 20;
-    const r = Math.round(darkNavy[0] + (tealBlue[0] - darkNavy[0]) * ratio);
-    const g = Math.round(darkNavy[1] + (tealBlue[1] - darkNavy[1]) * ratio);
-    const b = Math.round(darkNavy[2] + (tealBlue[2] - darkNavy[2]) * ratio);
-    doc.setFillColor(r, g, b);
-    doc.rect((i * pageWidth) / 20, 0, pageWidth / 20 + 0.5, 32, 'F');
-  }
+  // Modern clean header
+  doc.setFillColor(245, 248, 250); // Light blue-grey
+  doc.rect(0, 0, pageWidth, 32, 'F');
 
   doc.setDrawColor(...turquoise);
-  doc.setLineWidth(1.5);
+  doc.setLineWidth(2);
   doc.line(0, 32, pageWidth, 32);
 
-  doc.setTextColor(...white);
+  doc.setTextColor(...darkNavy);
   doc.setFontSize(22);
   doc.setFont('helvetica', 'bold');
   doc.text('FINANCIAL SUMMARY', 15, 20);
