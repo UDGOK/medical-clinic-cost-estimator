@@ -562,10 +562,10 @@ export function generateClientProposal(
     if (item.notes && yPos < pageHeight - 50) {
       doc.setFontSize(8);
       doc.setFont('helvetica', 'bold');
-      doc.setTextColor(...navyBlue);
+      doc.setTextColor(...darkNavy);
       doc.text(`${item.name}:`, 14, yPos);
       doc.setFont('helvetica', 'normal');
-      doc.setTextColor(0, 0, 0);
+      doc.setTextColor(...oceanBlue);
       doc.text(item.notes, 14, yPos + 4, { maxWidth: pageWidth - 28 });
       yPos += 10;
     }
