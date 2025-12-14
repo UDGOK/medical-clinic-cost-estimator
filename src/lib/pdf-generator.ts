@@ -533,26 +533,36 @@ export function generateClientProposal(
       fillColor: darkNavy,
       textColor: [...white],
       fontStyle: 'bold',
-      fontSize: 8,
-      halign: 'center'
+      fontSize: 7.5,
+      halign: 'center',
+      cellPadding: 2.5
     },
     footStyles: {
       fillColor: tealBlue,
       textColor: [...white],
-      fontStyle: 'bold'
+      fontStyle: 'bold',
+      fontSize: 8
     },
     alternateRowStyles: {
       fillColor: lightBg
     },
-    styles: { fontSize: 8, cellPadding: 3.5, lineColor: [220, 220, 220], lineWidth: 0.1 },
-    columnStyles: {
-      0: { cellWidth: 50, textColor: [...darkNavy] },
-      1: { cellWidth: 40, textColor: [...oceanBlue] },
-      2: { cellWidth: 30, textColor: [...oceanBlue] },
-      3: { halign: 'right', cellWidth: 30, textColor: [...oceanBlue] },
-      4: { halign: 'right', cellWidth: 20, textColor: [...oceanBlue] },
-      5: { halign: 'right', fontStyle: 'bold', cellWidth: 30, textColor: [...tealBlue] },
+    styles: {
+      fontSize: 7.5,
+      cellPadding: 2.5,
+      lineColor: [220, 220, 220],
+      lineWidth: 0.1,
+      overflow: 'linebreak',
+      cellWidth: 'wrap'
     },
+    columnStyles: {
+      0: { cellWidth: 45, textColor: [...darkNavy], overflow: 'linebreak' },
+      1: { cellWidth: 32, textColor: [...oceanBlue], overflow: 'linebreak' },
+      2: { cellWidth: 25, textColor: [...oceanBlue] },
+      3: { halign: 'right', cellWidth: 28, textColor: [...oceanBlue] },
+      4: { halign: 'right', cellWidth: 18, textColor: [...oceanBlue] },
+      5: { halign: 'right', fontStyle: 'bold', cellWidth: 28, textColor: [...tealBlue] },
+    },
+    margin: { left: 14, right: 14 },
   });
 
   // Equipment notes
